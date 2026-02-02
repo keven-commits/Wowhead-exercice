@@ -8,48 +8,50 @@
 
 <body>
     <div id="main"></div>
-    <div id="test"></div>
     <script>
-              /// constante "name" avec données en string
+
+                /// constante "name" avec données en string
         const name = ["WOW", "Discord", "Duchesne", "NPC"];
-              /// parametre de fonction "forEach" prend premiere variable en string, deuxieme en position, et troisieme en valeur de la constante
+             
+                /// parametre de fonction "forEach" prend premiere variable en string, deuxieme en position, et troisieme en valeur de la constante
         name.forEach((nom, index) => {
-              /// appel de fonction "appentitle" avec nom "nom" qui rappel à la première variable en "string" de la constante grâce au "ForEach"
+                /// appel de fonction "appentitle" avec nom "nom" qui rappel à la première variable en "string" de la constante grâce au "ForEach"
             appentitle(nom)
+                /// Dans la console on peut y voir le nom ainsi que son Index relié (I)
             console.log(nom, index);
         });
-              ///"appentitle" nom de la fonction "(tittle)" paramètre de la fonction
-        function appentitle(tittle) {
-              /// Creation d'une constante "targetDiv" qui va faire appel à la div "Main" grâce au "getElementById"
+
+
+                ///"appentitle" nom de la fonction "(tittle)" paramètre de la fonction
+        function appentitle(name) {
+                /// Creation d'une constante "targetDiv" qui va faire appel à la div "Main" grâce au "getElementById"
             const targetDiv = document.getElementById('main');
-              /// Crée un nouvel élement "h1"
+                /// Crée un nouvel élement "h1"
             const title = document.createElement('h1');
-             /// ajoute un listener en mode "click" pour ajouter l'evenement "e" à chaque h1 element à cause de "title"
+                /// ajoute un listener en mode "click" pour ajouter l'evenement "e" à chaque h1 element à cause de "title"
             title.addEventListener("click", (e) => {
                 e.target.style.backgroundColor = "red"
                 console.log(e)
             })
-             /// Crée une constante "h1Text" avec un noeud de texte qui va appliquer la fonction appentitle
-            const h1Text = document.createTextNode(tittle);
-            /// Append (ajoute) "h1Text" comme child dans "title"
+                /// Crée une constante "h1Text" avec un noeud de texte qui va appliquer la fonction appentitle
+            const h1Text = document.createTextNode(name);
+                /// Append (ajoute) "h1Text" comme child dans "title"
             title.appendChild(h1Text);
-            /// Append (ajoute) "title" comme child dans "targetdiv"
+                /// Append (ajoute) "title" comme child dans "targetdiv"
             targetDiv.appendChild(title);
-            name.sort();
-            document.getElementById("test").innerHTML = name;
-            /// Une primitive est le type de sortie d'élément ex:"string", "number", "boolean", "null", etc.
+                /// Une primitive est le type de sortie d'élément ex:"string", "number", "boolean", "null", etc.
         }
 
-            /// liste d'objet entre [], objet entre {}, l'objet est une série de variable.
+                /// liste d'objet entre [], objet entre {}, l'objet est une série de variable.
         const players = [{ Name: "Pierre", force: "0", classe: "mage" }, { Name: "Nicolas", force: "110", classe: "hunter" }, { Name: "tiouill", force: "-10", classe: "priest" }]
         
+                /// dans la fonction "forEach" on remplace la l'objet par le nom "name", qu'on va ensuite appliquer dans l'appel de fonction "appentitle"
         players.forEach((name) => {
-            player(name)
-        }); ///dans la fonction player, le paramètre "info" réfère à la position de la série d'objet, donc, info1.Name = Pierre, info2.Name = Nicolas...
-        function player(info) {
-            appentitle(info.Name)
-            console.log(info.force)
-        }
+                /// dans la fonction, on fait un appel de fonction avec le paramètre "name" pour utiliser les données de la constante "players" avec le ".force" on se concentre sur la force de l'objet
+            appentitle(name.force)
+            console.log(appentitle.force)
+        });
+
 
 
     </script>

@@ -1,23 +1,29 @@
+const Joueurs = [
+    { type: "PVP", name: "Herv" },
+    { type: "PVE", name: "Kev" },
+    { type: "PVP", name: "Herv" }
+];
 
-const Joueurs = [];
+const joueursPVP = [];
 
-function NouveauJoueur(joueur, tableauDeJoueur) {
-    if (Joueurs.type === "PVP") {
-        AddJoueurAuTableur(joueur, tableauDeJoueur)
-    }
-    return
-}
-function AddJoueurAuTableau(joueur, tableauDeJoueur) {
-    for (let i = 0; i < tableauDeJoueur.lengt; i++) {
-        if (tableauDeJoueur[i].name === joueur.name) {
-            break
-            return
-        } else {
-            tableauDeJoueur[tableauDeJoueur.lengt] = joueur
+function ajouterJoueursPVP(listeJoueurs, tableauFinal) {
+    for (let i = 0; i < listeJoueurs.length; i++) {
+        if (listeJoueurs[i].type === "PVP") {
+            ajouterSiAbsent(listeJoueurs[i], tableauFinal);
         }
     }
 }
 
-const j = { type: "PVP", name: "Herv" };
+function ajouterSiAbsent(joueur, tableau) {
+    for (let i = 0; i < tableau.length; i++) {
+        if (tableau[i].name === joueur.name) {
+            return; // déjà présent
+        }
+    }
+    tableau[tableau.length] = joueur; // ajout
+}
 
-NouveauJoueur(j, Joueurs)
+// appel
+ajouterJoueursPVP(Joueurs, joueursPVP);
+
+console.log(joueursPVP);
